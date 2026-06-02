@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Solutions by MS clicks</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script async src="https://docs.opencv.org/4.8.0/opencv.js" onload="onOpenCvReady()"></script>
+</head>
+<body>
+
+  <div class="bg-animation">
+    <canvas id="bgCanvas"></canvas>
+    <div class="bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb orb-4"></div>
+      <div class="orb orb-5"></div>
+    </div>
+  </div>
+
+  <header class="glass-header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <img id="siteLogo" src="public/dark.png" alt="MS clicks Logo" class="logo-img" />
+        <div class="site-title">
+          Image Solutions by <span class="gold-text">MS clicks</span>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <div class="toggle-track">
+          <span class="toggle-icon sun">☀️</span>
+          <span class="toggle-icon moon">🌙</span>
+          <div class="toggle-thumb"></div>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tab-nav glass-nav">
+    <button class="tab-btn active" data-tab="home">
+      <span class="tab-icon">🏠</span>
+      <span>Home</span>
+    </button>
+    <button class="tab-btn" data-tab="watermark">
+      <span class="tab-icon">🪄</span>
+      <span>Watermark Remover</span>
+    </button>
+    <button class="tab-btn" data-tab="convert">
+      <span class="tab-icon">🔄</span>
+      <span>Image Convert</span>
+    </button>
+  </nav>
+
+  <main class="main-content">
+
+    <section class="tab-content active" id="tab-home">
+      <div class="hero-section">
+        <h1 class="hero-title">
+          Welcome to <br/>
+          <span class="gold-text glow-text">MS clicks</span>
+          <br/>Image Solutions
+        </h1>
+        <p class="hero-sub">Professional image tools — free, fast, and private. All processing happens in your browser.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="glass-card feature-card">
+          <div class="card-icon">🪄</div>
+          <h3>Watermark Remover</h3>
+          <p>Remove watermarks from any image using AI-powered brush or auto-detect tools.</p>
+          <button class="glass-btn gold-btn" onclick="switchTab('watermark')">Open Tool <span>→</span></button>
+        </div>
+        <div class="glass-card feature-card">
+          <div class="card-icon">🔄</div>
+          <h3>Image Converter</h3>
+          <p>Convert images between JPG, PNG, WEBP, BMP, GIF and more formats instantly.</p>
+          <button class="glass-btn gold-btn" onclick="switchTab('convert')">Open Tool <span>→</span></button>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <h2 class="section-title">Contact <span class="gold-text">Us</span></h2>
+        <p class="contact-sub">Reach us on your preferred platform</p>
+        <div class="contact-grid">
+
+          <a href="https://www.msclicks.tech/" target="_blank" class="glass-card contact-card">
+            <div class="contact-icon-wrap website-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Website</span>
+              <span class="contact-handle">Visit our Website</span>
+            </div>
+            <span class="contact-arrow">→</span>
+          </a>
+
+          <a href="https://wa.me/94742317018" target="_blank" class="glass-card contact-card">
+            <div class="contact-icon-wrap whatsapp-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">WhatsApp</span>
+              <span class="contact-handle">Chat with us</span>
+            </div>
+            <span class="contact-arrow">→</span>
+          </a>
+
+          <a href="https://www.facebook.com/share/1YFJTyA6HB/" target="_blank" class="glass-card contact-card">
+            <div class="contact-icon-wrap facebook-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Facebook</span>
+              <span class="contact-handle">Follow us on Facebook</span>
+            </div>
+            <span class="contact-arrow">→</span>
+          </a>
+
+          <a href="https://t.me/maleesha0411" target="_blank" class="glass-card contact-card">
+            <div class="contact-icon-wrap telegram-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Telegram</span>
+              <span class="contact-handle">Message on Telegram</span>
+            </div>
+            <span class="contact-arrow">→</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="tab-content" id="tab-watermark">
+      <div class="tool-header">
+        <h2 class="section-title">🪄 Watermark <span class="gold-text">Remover</span></h2>
+        <p class="tool-desc">Upload an image and remove watermarks using brush painting or auto-detection. All processing is done locally in your browser.</p>
+      </div>
+      <div class="tool-container">
+        <div class="glass-card upload-card" id="wmUploadArea">
+          <div class="upload-inner" id="wmDropZone">
+            <div class="upload-icon">🖼️</div>
+            <p class="upload-text">Drag & drop an image here</p>
+            <p class="upload-sub">or click to browse</p>
+            <input type="file" id="wmFileInput" accept="image/*" hidden />
+            <button class="glass-btn gold-btn" onclick="document.getElementById('wmFileInput').click()">Choose Image</button>
+          </div>
+        </div>
+
+        <div class="editor-area glass-card" id="wmEditor" style="display:none;">
+          <div class="tools-panel glass-card">
+            <div class="tool-group">
+              <label class="tool-label">Mode</label>
+              <div class="mode-btns">
+                <button class="glass-btn mode-btn active" id="brushModeBtn" onclick="setMode('brush')">🖌️ Brush</button>
+                <button class="glass-btn mode-btn" id="autoModeBtn" onclick="setMode('auto')">🤖 Auto</button>
+              </div>
+            </div>
+            <div class="tool-group" id="brushControls">
+              <label class="tool-label">Brush Size: <span id="brushSizeVal">30</span>px</label>
+              <input type="range" id="brushSize" min="5" max="100" value="30" class="glass-range" />
+            </div>
+            <div class="tool-group">
+              <label class="tool-label">Inpaint Radius: <span id="radiusVal">5</span></label>
+              <input type="range" id="inpaintRadius" min="1" max="20" value="5" class="glass-range" />
+            </div>
+            <div class="action-btns">
+              <button class="glass-btn" onclick="undoMask()">↩️ Undo</button>
+              <button class="glass-btn" onclick="clearMask()">🗑️ Clear</button>
+              <button class="glass-btn gold-btn" id="removeBtn" onclick="removeWatermark()">✨ Remove</button>
+            </div>
+            <div class="action-btns" style="margin-top:8px;">
+              <button class="glass-btn" onclick="resetWmTool()">🔄 New Image</button>
+              <button class="glass-btn gold-btn" id="wmDownloadBtn" onclick="downloadWm()" style="display:none;">⬇️ Download</button>
+            </div>
+            <div id="wmStatus" class="status-msg"></div>
+          </div>
+
+          <div class="canvas-wrap">
+            <div class="canvas-tabs">
+              <button class="canvas-tab-btn active" onclick="showCanvas('original')">Original</button>
+              <button class="canvas-tab-btn" onclick="showCanvas('result')">Result</button>
+            </div>
+            <div class="canvas-container">
+              <canvas id="wmOrigCanvas" class="edit-canvas active-canvas"></canvas>
+              <canvas id="wmMaskCanvas" class="edit-canvas mask-canvas"></canvas>
+              <canvas id="wmResultCanvas" class="edit-canvas result-canvas"></canvas>
+              <div id="cvLoading" class="cv-loading" style="display:none;">
+                <div class="spinner"></div>
+                <p>Loading OpenCV...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tab-content" id="tab-convert">
+      <div class="tool-header">
+        <h2 class="section-title">🔄 Image <span class="gold-text">Converter</span></h2>
+        <p class="tool-desc">Convert images between multiple formats instantly. Supports JPG, PNG, WEBP, BMP, GIF and more.</p>
+      </div>
+      <div class="tool-container convert-container">
+        <div class="glass-card upload-card" id="cvUploadArea">
+          <div class="upload-inner" id="cvDropZone">
+            <div class="upload-icon">📁</div>
+            <p class="upload-text">Drag & drop images here</p>
+            <p class="upload-sub">Supports multiple files</p>
+            <input type="file" id="cvFileInput" accept="image/*" multiple hidden />
+            <button class="glass-btn gold-btn" onclick="document.getElementById('cvFileInput').click()">Choose Images</button>
+          </div>
+        </div>
+
+        <div class="glass-card convert-options" id="cvOptions" style="display:none;">
+          <div class="convert-settings">
+            <div class="setting-group">
+              <label class="tool-label">Output Format</label>
+              <select id="outputFormat" class="glass-select">
+                <option value="image/jpeg">JPG / JPEG</option>
+                <option value="image/png" selected>PNG</option>
+                <option value="image/webp">WEBP</option>
+                <option value="image/bmp">BMP</option>
+                <option value="image/gif">GIF</option>
+              </select>
+            </div>
+            <div class="setting-group" id="qualityGroup">
+              <label class="tool-label">Quality: <span id="qualityVal">92</span>%</label>
+              <input type="range" id="qualityRange" min="10" max="100" value="92" class="glass-range" />
+            </div>
+            <div class="setting-group">
+              <label class="tool-label">Resize (optional)</label>
+              <div class="resize-inputs">
+                <input type="number" id="resizeW" placeholder="Width px" class="glass-input" />
+                <span class="resize-x">×</span>
+                <input type="number" id="resizeH" placeholder="Height px" class="glass-input" />
+                <label class="checkbox-label">
+                  <input type="checkbox" id="keepAspect" checked />
+                  <span>Keep ratio</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div id="cvFileList" class="file-list"></div>
+          <div class="convert-actions">
+            <button class="glass-btn" onclick="resetCvTool()">🔄 Clear All</button>
+            <button class="glass-btn gold-btn" onclick="convertAll()">🔄 Convert All</button>
+            <button class="glass-btn gold-btn" id="downloadAllBtn" onclick="downloadAll()" style="display:none;">⬇️ Download All</button>
+          </div>
+          <div id="cvStatus" class="status-msg"></div>
+          <div id="cvResults" class="convert-results"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="glass-footer">
+    <div class="footer-inner">
+      <p>© 2026 <span class="gold-text">MSclicks</span> — All Rights Reserved</p>
+      <p class="footer-sub">Made with ❤️ | All image processing is done locally in your browser</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="watermark.js"></script>
+  <script src="convert.js"></script>
+</body>
+</html>
